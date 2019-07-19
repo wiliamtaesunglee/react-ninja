@@ -2,8 +2,8 @@
 
 const path = require("path");
 const webpack = require("webpack");
-
-module.exports = {
+const validate = require("webpack-validator");
+module.exports = validate({
   devtool: "source-map",
 
   entry: [
@@ -21,6 +21,14 @@ module.exports = {
 
   plugins: [new webpack.HotModuleReplacementPlugin()],
   module: {
+    preLoaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        include: /src/,
+        loader: "standard"
+      }
+    ],
     loaders: [
       {
         test: /\.js$/,
@@ -30,4 +38,4 @@ module.exports = {
       }
     ]
   }
-};
+});
