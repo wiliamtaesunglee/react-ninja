@@ -3,15 +3,17 @@
 import React, { Component } from "react";
 import Title from "./Title";
 import Square from "./Square";
-import Button from "./Button";
+import SearchButton from "./SearchButton";
+import LikeButton from "./LikeButton";
 
 class App extends Component {
   render() {
     return (
-      <div className="container" onClick={() => alert("clicou")}>
+      <div>
         <Title />
         <Square />
-        <Button>Botao doidao</Button>
+        <LikeButton />
+        <SearchButton />
       </div>
     );
   }
