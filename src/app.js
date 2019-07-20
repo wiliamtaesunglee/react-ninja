@@ -1,19 +1,26 @@
 "use strict";
 
 import React, { Component } from "react";
-import Title from "./Title";
 import Square from "./Square";
-import SearchButton from "./SearchButton";
-import LikeButton from "./LikeButton";
+import Button from "./Button";
 
 class App extends Component {
+  constructor() {
+    super(); //possibilita o uso do setState() o qual atualiza a rederizacao quando o estado é transformada/alterado
+    this.state = {
+      color: "green"
+    };
+  }
   render() {
     return (
       <div>
-        <Title />
-        <Square />
-        <LikeButton />
-        <SearchButton />
+        <Square color={this.state.color} />
+
+        {["red", "green", "blue"].map(color => (
+          <Button key={color} handleClick={() => this.setState({ color })}>
+            {color}
+          </Button>
+        ))}
       </div>
     );
   }
