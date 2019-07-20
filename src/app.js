@@ -1,7 +1,8 @@
 "use strict";
 
 import React, { Component } from "react";
-import Title from "./Title";
+// import Title from "./Title";
+import Square from "./Square";
 
 // const App = React.createClass({
 //   render: function() {
@@ -17,7 +18,9 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <Title name="dizzie" />
+        {["blue", "pink", "black"].map(elem => (
+          <Square key={elem} color={elem} />
+        ))}
       </div>
     );
   }
