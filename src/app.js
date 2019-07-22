@@ -1,7 +1,6 @@
 "use strict";
 
 import React, { Component } from "react";
-
 class App extends Component {
   constructor() {
     super();
@@ -12,19 +11,20 @@ class App extends Component {
   render() {
     return (
       <div>
-        <form>
-          <select
-            value={this.state.value}
-            onChange={e =>
-              this.setState({
-                value: e.target.value
-              })
-            }
-          >
-            <option value="1">Opção 1</option>
-            <option value="2">Opção 2</option>
-            <option value="3">Opção 3</option>
-          </select>
+        <form
+          onSubmit={e => {
+            e.preventDefault();
+            console.log("event", e);
+          }}
+          onChange={e => {
+            console.log("name", e.target.name);
+            console.log("value", e.target.value);
+          }}
+        >
+          <input typpe="name" name="name" />
+          <input type="value" name="value" />
+          <textarea defaultValue={"textarea\nvalue"} />
+          <button>Enbiar</button>
         </form>
       </div>
     );
